@@ -1,0 +1,10 @@
+{
+  "name": "blogit",
+  "version": "1.0.0",
+  "main": "index.js",
+  "author": "RossPin <dorpetz@hotmail.com>",
+  "license": "MIT",
+  "dependencies": {
+    "express": "^4.16.3"
+  }
+}
