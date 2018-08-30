@@ -1,11 +1,11 @@
 var mongoose = require('mongoose')
 mongoose.connect("mongodb://localhost:27017/node-blog")
 
-var postSchema = new mongoose.Schema({ body: String })
+var postSchema = new mongoose.Schema({ title: String, text: String })
 var Post = mongoose.model('Post', postSchema)
 
-function addPost(data) {
-  var postData = new Post(data)
+function addPost(post) {
+  var postData = new Post(post)  
   return postData.save()
 }
 

@@ -1,11 +1,12 @@
 import request from 'superagent'
 
 export function addPost(post) {
-  return request.post('/api/posts/addpost')
-            .send(post)
-            .then(res => {
-              return res.body
-            })
+  return request
+    .post('/api/posts/addpost')
+    .send(post)
+    .then(res => {              
+      return res.body
+    })
 }
 
 export function getPosts() {

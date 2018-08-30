@@ -22,7 +22,7 @@ class Postlist extends React.Component {
         <h2>Posts</h2>
         <ul>
           {this.state.posts.map(post => (
-            <li key={post._id}>{post._title}</li>
+            <li key={post._id}>{post.title}</li>
           ))}
         </ul>
       </div>
