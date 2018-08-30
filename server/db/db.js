@@ -1,5 +1,5 @@
 var mongoose = require('mongoose')
-mongoose.connect("mongodb://localhost:27017/node-blog")
+mongoose.connect("mongodb://localhost:27017/blog-test")
 
 var postSchema = new mongoose.Schema({ title: String, text: String })
 var Post = mongoose.model('Post', postSchema)
