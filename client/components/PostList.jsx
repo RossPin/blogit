@@ -10,18 +10,19 @@ class Postlist extends React.Component {
   }
 
   componentDidMount(){
-    getPosts().then(posts => {      
+    getPosts().then(posts => { 
+      console.log(posts)     
       this.setState({posts})
     })
   }
 
   render(){    
     return (
-      <div>
+      <div className='postList'>
         <h2>Posts</h2>
         <ul>
           {this.state.posts.map(post => (
-            <li key={post._id}>{post._id}</li>
+            <li key={post._id}>{post._title}</li>
           ))}
         </ul>
       </div>

@@ -2,7 +2,7 @@ import request from 'superagent'
 
 export function addPost(post) {
   return request.post('/api/posts/addpost')
-            .send(posts)
+            .send(post)
             .then(res => {
               return res.body
             })
