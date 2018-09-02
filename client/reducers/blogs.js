@@ -1,9 +1,9 @@
 const initalState = []
 
-export default function blog(state = initialState, action) {
+export default function blog(state = initalState, action) {
     switch(action.type) {
-        case 'ADD_BLOG':
-            return action.blog        
+        case 'UPDATE_BLOGS':
+            return action.blogs        
         default:
             return state; 
     }

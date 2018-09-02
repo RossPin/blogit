@@ -1,5 +1,6 @@
 import React from 'react'
-import { getPosts } from '../api';
+import {connect} from 'react-redux'
+import { getBlogs } from '../actions/blogs';
 
 class Postlist extends React.Component {
   constructor(props){
@@ -10,10 +11,11 @@ class Postlist extends React.Component {
   }
 
   componentDidMount(){
-    getPosts().then(posts => { 
-      console.log(posts)     
-      this.setState({posts})
-    })
+    // getPosts().then(posts => { 
+    //   console.log(posts)     
+    //   this.setState({posts})
+    // })
+    this.props.dispatch(getBlogs())
   }
 
   render(){    
@@ -21,7 +23,7 @@ class Postlist extends React.Component {
       <div className='postList'>
         <h2>Posts</h2>
         <ul>
-          {this.state.posts.map(post => (
+          {this.props.blogs.map(post => (
             <li key={post._id}>{post.title}</li>
           ))}
         </ul>
@@ -30,4 +32,8 @@ class Postlist extends React.Component {
   }
 }
 
-export default Postlist
+const mapStateToProps = ({blogs}) => ({
+  blogs
+})
+
+export default connect(mapStateToProps)(Postlist)

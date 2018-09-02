@@ -1,5 +1,6 @@
 import React from 'react'
-import { addPost } from '../api';
+import { addBlog } from '../actions/blogs';
+import {connect} from 'react-redux'
 
 class NewPost extends React.Component {
   constructor(props){
@@ -19,9 +20,7 @@ class NewPost extends React.Component {
 
   submit(e){
     e.preventDefault()
-    addPost(this.state).then(posts => {
-
-    })
+    this.props.dispatch(addBlog(this.state))
   }
 
   render(){
@@ -37,4 +36,4 @@ class NewPost extends React.Component {
   }
 }
 
-export default NewPost
+export default connect()(NewPost)
