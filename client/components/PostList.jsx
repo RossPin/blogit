@@ -1,5 +1,6 @@
 import React from 'react'
 import {connect} from 'react-redux'
+import {Link} from 'react-router-dom'
 import { getBlogs, delBlog, setBlog } from '../actions/blogs';
 
 class Postlist extends React.Component {
@@ -21,6 +22,7 @@ class Postlist extends React.Component {
 
   setPost(post){
     this.props.dispatch(setBlog(post))
+    this.props.history.push('/view')
   }
 
   delete(postId){
@@ -32,6 +34,7 @@ class Postlist extends React.Component {
       <div className='postList'>
         <h2>Posts</h2>
         <ul>
+          <li><Link to='/new'>New Post</Link></li>
           {this.props.blogs.map(post => (
             <li key={post._id}><span onClick={()=>this.setPost(post)}>{post.title}</span> - <button onClick={()=>this.delete(post._id) }>Delete</button></li>
           ))}
