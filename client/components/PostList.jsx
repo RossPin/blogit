@@ -1,6 +1,6 @@
 import React from 'react'
 import {connect} from 'react-redux'
-import { getBlogs } from '../actions/blogs';
+import { getBlogs, delBlog } from '../actions/blogs';
 
 class Postlist extends React.Component {
   constructor(props){
@@ -8,6 +8,7 @@ class Postlist extends React.Component {
     this.state = {
       posts: []
     }
+    this.delete = this.delete.bind(this)
   }
 
   componentDidMount(){
@@ -18,13 +19,17 @@ class Postlist extends React.Component {
     this.props.dispatch(getBlogs())
   }
 
+  delete(postId){
+    this.props.dispatch(delBlog(postId))
+  }
+
   render(){    
     return (
       <div className='postList'>
         <h2>Posts</h2>
         <ul>
           {this.props.blogs.map(post => (
-            <li key={post._id}>{post.title}</li>
+            <li key={post._id}>{post.title} - <span onClick={()=>this.delete(post._id) }>Delete</span></li>
           ))}
         </ul>
       </div>

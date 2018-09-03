@@ -1,4 +1,4 @@
-import {addPost, getPosts} from '../api'
+import {addPost, getPosts, delPost} from '../api'
 
 export const updateBlogs = blogs => ({
     type: 'UPDATE_BLOGS',
@@ -19,3 +19,12 @@ export const getBlogs = () =>
     .then(blogs => {
       dispatch(updateBlogs(blogs))
     }) 
+
+export const delBlog = postId => 
+  dispatch => delPost(postId)
+  .then(blog => {
+    getPosts()
+      .then(blogs => {
+        dispatch(updateBlogs(blogs))
+      })      
+  })

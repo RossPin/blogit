@@ -15,3 +15,12 @@ export function getPosts() {
               return res.body
             })
 }
+
+export function delPost(postId) {
+  return request
+    .delete('/api/posts/delpost')
+    .send({postId})
+    .then(res => {              
+      return res.body
+    })
+}
