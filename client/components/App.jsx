@@ -1,5 +1,5 @@
 import React from 'react'
-import {BrowserRouter, Route} from 'react-router-dom'
+import {HashRouter, Route} from 'react-router-dom'
 import Nav from './Nav'
 import Postlist from './PostList'
 import NewPost from './NewPost'
@@ -7,7 +7,7 @@ import Post from './Post'
 
 const App = () => {
     return (
-        <BrowserRouter>
+        <HashRouter>
         <div>
             <Nav/>
             <Route path='/' component={Postlist}/>
@@ -16,7 +16,7 @@ const App = () => {
                 <Route path='/view' component={Post}/>
             </div>
         </div>
-        </BrowserRouter>
+        </HashRouter>
     )
 }
 
