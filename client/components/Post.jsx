@@ -6,6 +6,13 @@ const Post = props => {
         <div>
             <h1>{props.currentBlog.title}</h1>
             <p>{props.currentBlog.text}</p>
+            <h4>Comments</h4>
+            <ul>
+                {props.currentBlog.comments.map(comment => 
+                    <li>{comment}</li>
+                )}
+            </ul>
+
         </div>
     )
 }
