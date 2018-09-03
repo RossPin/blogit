@@ -1,6 +1,6 @@
 import React from 'react'
 import {connect} from 'react-redux'
-import { getBlogs, delBlog } from '../actions/blogs';
+import { getBlogs, delBlog, setBlog } from '../actions/blogs';
 
 class Postlist extends React.Component {
   constructor(props){
@@ -19,6 +19,10 @@ class Postlist extends React.Component {
     this.props.dispatch(getBlogs())
   }
 
+  setPost(post){
+    this.props.dispatch(setBlog(post))
+  }
+
   delete(postId){
     this.props.dispatch(delBlog(postId))
   }
@@ -29,7 +33,7 @@ class Postlist extends React.Component {
         <h2>Posts</h2>
         <ul>
           {this.props.blogs.map(post => (
-            <li key={post._id}>{post.title} - <button onClick={()=>this.delete(post._id) }>Delete</button></li>
+            <li key={post._id}><span onClick={()=>this.setPost(post)}>{post.title}</span> - <button onClick={()=>this.delete(post._id) }>Delete</button></li>
           ))}
         </ul>
       </div>

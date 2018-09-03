@@ -5,6 +5,11 @@ export const updateBlogs = blogs => ({
     blogs
   })
 
+export const setBlog = blog => ({
+  type: 'SET_BLOG',
+  blog
+})
+
 export const addBlog = blog => 
   dispatch => addPost(blog)
     .then(blog => {
