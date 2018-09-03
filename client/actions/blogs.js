@@ -33,3 +33,12 @@ export const delBlog = postId =>
         dispatch(updateBlogs(blogs))
       })      
   })
+
+export const addComment = comment => 
+  dispatch => postComment(comment)
+    .then(blog => {
+      getPosts()
+        .then(blogs => {
+          dispatch(updateBlogs(blogs))
+        })      
+    })

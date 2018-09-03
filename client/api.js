@@ -24,3 +24,12 @@ export function delPost(postId) {
       return res.body
     })
 }
+
+export function postComment(comment) {
+  return request
+    .post('/api/posts/postcomment')
+    .send(comment)
+    .then(res => {              
+      return res.body
+    })
+}
