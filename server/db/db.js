@@ -18,8 +18,13 @@ function delPost(postId){
   return Post.remove({_id: postId})
 }
 
+function postComment(id, comment){
+  return Post.update({_id: id}, {$push: {comments: comment}})
+}
+
 module.exports = {
   addPost,
   getPost,
-  delPost
+  delPost,
+  postComment
 }

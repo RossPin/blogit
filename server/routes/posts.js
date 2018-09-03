@@ -19,4 +19,11 @@ router.delete('/delpost', (req, res) => {
   })
 })
 
+router.post('/postcomment', (req, res) => {
+  const {id, comment} = req.body
+  db.postComment(id, comment).then(post => {      
+    res.json(post)    
+  })
+})
+
 module.exports = router
