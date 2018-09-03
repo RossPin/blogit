@@ -13,7 +13,12 @@ function getPost() {
   return Post.find({})
 }
 
+function delPost(postId){
+  return Post.remove({_id: postId})
+}
+
 module.exports = {
   addPost,
-  getPost
+  getPost,
+  delPost
 }

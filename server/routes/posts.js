@@ -13,4 +13,10 @@ router.get('/getposts', (req, res) => {
   })
 })
 
+router.delete('/delpost', (req, res) => {
+  db.delPost(req.body.postId).then(() => {
+    res.sendStatus(200)
+  })
+})
+
 module.exports = router
