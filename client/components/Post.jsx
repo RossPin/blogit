@@ -1,5 +1,6 @@
 import React from 'react'
 import {connect} from 'react-redux'
+import { addComment } from '../actions/blogs';
 
 class Post extends React.Component {
     constructor(props){

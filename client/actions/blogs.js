@@ -1,4 +1,4 @@
-import {addPost, getPosts, delPost} from '../api'
+import {addPost, getPosts, delPost, postComment} from '../api'
 
 export const updateBlogs = blogs => ({
     type: 'UPDATE_BLOGS',
