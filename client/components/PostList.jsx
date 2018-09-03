@@ -29,7 +29,7 @@ class Postlist extends React.Component {
         <h2>Posts</h2>
         <ul>
           {this.props.blogs.map(post => (
-            <li key={post._id}>{post.title} - <span onClick={()=>this.delete(post._id) }>Delete</span></li>
+            <li key={post._id}>{post.title} - <button onClick={()=>this.delete(post._id) }>Delete</button></li>
           ))}
         </ul>
       </div>
