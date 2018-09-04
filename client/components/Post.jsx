@@ -8,6 +8,8 @@ class Post extends React.Component {
         this.state = {
             comment: ''
         }
+        this.updateDetails = this.updateDetails.bind(this)
+        this.submit = this.submit.bind(this)
     }
 
     updateDetails(e){
@@ -24,15 +26,15 @@ class Post extends React.Component {
     render(){
         return (
             <div>
-                <h1>{props.currentBlog.title}</h1>
-                <p>{props.currentBlog.text}</p>
+                <h1>{this.props.currentBlog.title}</h1>
+                <p>{this.props.currentBlog.text}</p>
                 <h3>Comments</h3> 
                 <form action="" method="post" onSubmit={this.submit}>
                     <input type="text" onChange={this.updateDetails} name="comment" value={this.state.comment}/>
                     <input type="submit" value="Post Comment"/>
                 </form>           
                 <ul>
-                    {props.currentBlog.comments.map(comment => 
+                    {this.props.currentBlog.comments.map(comment => 
                         <li>{comment}</li>
                     )}
                 </ul>
