@@ -10,7 +10,11 @@ function addPost(post) {
   return postData.save()
 }
 
-function getPost() {
+function getPost(id) {
+  return Post.find({_id: id}).then(posts => posts[0])
+}
+
+function getPosts() {
   return Post.find({})
 }
 
@@ -25,6 +29,7 @@ function postComment(id, comment){
 module.exports = {
   addPost,
   getPost,
+  getPosts,
   delPost,
   postComment
 }

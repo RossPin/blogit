@@ -7,8 +7,15 @@ router.post('/addpost', (req, res) => {
   })
 })
 
+router.get('/getpost/:id', (req, res) => {
+  const {id} = req.params
+  db.getPost(id).then((post) => {
+    res.json(post)
+  })
+})
+
 router.get('/getposts', (req, res) => {
-  db.getPost().then((posts) => {
+  db.getPosts().then((posts) => {
     res.json(posts)
   })
 })
@@ -21,8 +28,10 @@ router.delete('/delpost', (req, res) => {
 
 router.post('/postcomment', (req, res) => {
   const {id, comment} = req.body
-  db.postComment(id, comment).then(post => {      
-    res.json(post)    
+  db.postComment(id, comment).then(() => {
+    db.getPost(id).then(post => {
+      res.json(post) 
+    })       
   })
 })
 
