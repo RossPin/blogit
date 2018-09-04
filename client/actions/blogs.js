@@ -37,6 +37,7 @@ export const delBlog = postId =>
 export const addComment = comment => 
   dispatch => postComment(comment)
     .then(blog => {
+      dispatch(setBlog(blog))
       getPosts()
         .then(blogs => {
           dispatch(updateBlogs(blogs))

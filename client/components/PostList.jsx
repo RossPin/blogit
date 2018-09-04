@@ -22,7 +22,6 @@ class Postlist extends React.Component {
 
   setPost(post){
     this.props.dispatch(setBlog(post))
-    this.props.history.push('/view')
   }
 
   delete(postId){
@@ -36,7 +35,7 @@ class Postlist extends React.Component {
         <ul>
           <li><Link to='/new'>New Post</Link></li>
           {this.props.blogs.map(post => (
-            <li key={post._id}><span onClick={()=>this.setPost(post)}>{post.title}</span> - <button onClick={()=>this.delete(post._id) }>Delete</button></li>
+            <li key={post._id}><Link to='/view' onClick={()=>this.setPost(post)}>{post.title}</Link> - <button onClick={()=>this.delete(post._id) }>Delete</button></li>
           ))}
         </ul>
       </div>

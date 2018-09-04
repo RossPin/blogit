@@ -21,6 +21,7 @@ class Post extends React.Component {
     e.preventDefault()
     const comment = {id: this.props.currentBlog._id, comment: this.state.comment}
     this.props.dispatch(addComment(comment))
+    this.setState({comment: ''})
     }
 
     render(){
