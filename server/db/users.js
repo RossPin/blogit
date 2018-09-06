@@ -8,7 +8,6 @@ var User = mongoose.model('User', userSchema)
 function createUser(user) {
   return new Promise ((resolve, reject) => {
     hash.generate(user.password, (err, hash) => {
-      console.log({err, hash});
       if (err) reject(err)
       var userData = new User({username: user.username.toLowerCase(), hash})  
       userData.save()
