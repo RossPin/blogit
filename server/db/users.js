@@ -11,7 +11,10 @@ function createUser(user) {
       console.log({err, hash});
       if (err) reject(err)
       var userData = new User({username: user.username.toLowerCase(), hash})  
-      return userData.save()      
+      userData.save()
+        .then(newUser => {
+          resolve(newUser)
+        })     
     })
 
   })

@@ -2,7 +2,7 @@ const express = require('express')
 const bodyParser = require('body-parser')
 const server = express()
 const posts = require('./routes/posts')
-const users = require('./routes/posts')
+const users = require('./routes/users')
 const path = require('path')
 
 server.use(bodyParser.json())
