@@ -31,18 +31,19 @@ class Post extends React.Component {
                 <h1>{this.props.currentBlog.title}</h1>
                 {paragraphs.map(paragraph =>
                     <p>{paragraph}</p>
-                )}                
-                <h3>Comments</h3> 
-                <form action="" method="post" onSubmit={this.submit}>
-                    <input type="text" onChange={this.updateDetails} name="comment" value={this.state.comment}/>
-                    <input type="submit" value="Post Comment"/>
-                </form>           
-                <ul>
-                    {this.props.currentBlog.comments.map(comment => 
-                        <li>{comment}</li>
-                    )}
-                </ul>
-    
+                )}
+                <div className='comments'>               
+                    <h3>Comments</h3> 
+                    <form action="" method="post" onSubmit={this.submit}>
+                        <input type="text" onChange={this.updateDetails} name="comment" value={this.state.comment}/>
+                        <input type="submit" value="Post Comment"/>
+                    </form>           
+                    <ul>
+                        {this.props.currentBlog.comments.map(comment => 
+                            <li>{comment}</li>
+                        )}
+                    </ul>
+                </div> 
             </div>
         )
     }
