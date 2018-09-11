@@ -28,8 +28,8 @@ class Post extends React.Component {
         const paragraphs = this.props.currentBlog.text.split(/[\r\n]+/)
         return (
             <div>
-                <h1>{this.props.currentBlog.title}</h1>
-                <h4>{this.props.currentBlog.user.username}</h4>
+                <h1 className='superHeading'>{this.props.currentBlog.title}</h1>
+                <h4 className='subHeading'>- {this.props.currentBlog.user.username}</h4>
                 {paragraphs.map(paragraph =>
                     <p>{paragraph}</p>
                 )}

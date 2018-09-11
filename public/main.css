@@ -33,14 +33,22 @@ body {
 
 .postList ul {
   list-style: none;
-  padding: 0;
-  margin: 0;
+  padding: 0;  
 }
 
 .comments ul {
+  list-style: none;
   padding: 0;
 }
 
 .comments li {
   margin-top: 0.5em;
+}
+
+.superHeading {
+  margin-bottom: 0;
+}
+
+.subHeading {
+  margin-top: 0;
 }
