@@ -29,6 +29,7 @@ class Post extends React.Component {
         return (
             <div>
                 <h1>{this.props.currentBlog.title}</h1>
+                <h4>{this.props.currentBlog.user.username}</h4>
                 {paragraphs.map(paragraph =>
                     <p>{paragraph}</p>
                 )}

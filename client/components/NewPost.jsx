@@ -20,7 +20,9 @@ class NewPost extends React.Component {
 
   submit(e){
     e.preventDefault()
-    this.props.dispatch(addBlog(this.state))
+    const post = this.state
+    post.user = this.props.auth.user
+    this.props.dispatch(addBlog(post))
   }
 
   render(){
@@ -37,4 +39,8 @@ class NewPost extends React.Component {
   }
 }
 
-export default connect()(NewPost)
+const mapStateToProps = ({ auth }) => {
+  return { auth }
+}
+
+export default connect(mapStateToProps)(NewPost)
