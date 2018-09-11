@@ -10,10 +10,18 @@ body {
   background-color: rgb(200,200,100);
 }
 
+.container {
+  width: 90%;
+  margin: 1em auto;
+  display: flex;
+  flex-wrap: wrap;
+  align-content: center;
+}
+
 .postList {
   width: 30%;
 }
 
-.newPost {
-  width: 50%
+.content {
+  width: 65%
 }

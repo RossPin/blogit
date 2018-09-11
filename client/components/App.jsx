@@ -12,12 +12,14 @@ const App = () => {
         <HashRouter>
         <div>
             <Nav/>
-            <Route path='/' component={Postlist}/>
-            <div className='content'>
-              <Route path="/login" component={Login} />
-              <Route path="/Register" component={Register} />
-              <Route path='/new' component={NewPost}/>
-              <Route path='/view' component={Post}/>
+            <div className="container">
+                <Route path='/' component={Postlist}/>
+                <div className='content'>
+                <Route path="/login" component={Login} />
+                <Route path="/Register" component={Register} />
+                <Route path='/new' component={NewPost}/>
+                <Route path='/view' component={Post}/>
+                </div>
             </div>
         </div>
         </HashRouter>
