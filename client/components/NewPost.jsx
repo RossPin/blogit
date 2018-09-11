@@ -29,11 +29,15 @@ class NewPost extends React.Component {
     return(
       <div>
         <h1>New Post</h1>
-        <form action="" method="post" onSubmit={this.submit}>
-          <input type="text" onChange={this.updateDetails} name="title" value={this.state.title}/><br/>
-          <textarea className="postInput" onChange={this.updateDetails} name="text" value={this.state.text}></textarea><br/>
-          <input type="submit" value="Post Blog"/>
-        </form>
+        {this.props.auth.isAuthenticated
+          ?
+          <form action="" method="post" onSubmit={this.submit}>
+            <input type="text" onChange={this.updateDetails} name="title" value={this.state.title}/><br/>
+            <textarea className="postInput" onChange={this.updateDetails} name="text" value={this.state.text}></textarea><br/>
+            <input type="submit" value="Post Blog"/>
+          </form> 
+          : <h5>Login to post comment</h5>
+        }        
       </div>
     )
   }

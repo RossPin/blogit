@@ -33,7 +33,7 @@ class Postlist extends React.Component {
       <div className='postList'>
         <h2>Posts</h2>
         <ul>
-          <li><Link to='/new'>New Post</Link></li>
+          {this.props.auth.isAuthenticated && <li><Link to='/new'>New Post</Link></li>}
           {this.props.blogs.map(post => (
             <li key={post._id}><Link to='/view' onClick={()=>this.setPost(post)}>{post.title}</Link> - <button onClick={()=>this.delete(post._id) }>Delete</button></li>
           ))}
@@ -43,8 +43,9 @@ class Postlist extends React.Component {
   }
 }
 
-const mapStateToProps = ({blogs}) => ({
-  blogs
+const mapStateToProps = ({blogs, auth}) => ({
+  blogs,
+  auth
 })
 
 export default connect(mapStateToProps)(Postlist)

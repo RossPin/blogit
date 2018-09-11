@@ -34,11 +34,15 @@ class Post extends React.Component {
                     <p>{paragraph}</p>
                 )}
                 <div className='comments'>               
-                    <h3>Comments</h3> 
-                    <form action="" method="post" onSubmit={this.submit}>
-                        <input type="text" onChange={this.updateDetails} name="comment" value={this.state.comment}/>
-                        <input type="submit" value="Post Comment"/>
-                    </form>           
+                    <h3>Comments</h3>
+                    {this.props.auth.isAuthenticated
+                         ?
+                        <form action="" method="post" onSubmit={this.submit}>
+                            <input type="text" onChange={this.updateDetails} name="comment" value={this.state.comment}/>
+                            <input type="submit" value="Post Comment"/>
+                        </form> 
+                        : <h5>Login to post comment</h5>
+                    }        
                     <ul>
                         {this.props.currentBlog.comments.map((comment, i) => 
                             <li key={i}><strong>{comment.user.username}:</strong> {comment.comment}</li>
