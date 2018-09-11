@@ -25,10 +25,13 @@ class Post extends React.Component {
     }
 
     render(){
+        const paragraphs = this.props.currentBlog.text.split(/[\r\n]+/)
         return (
             <div>
                 <h1>{this.props.currentBlog.title}</h1>
-                <p>{this.props.currentBlog.text}</p>
+                {paragraphs.map(paragraph =>
+                    <p>{paragraph}</p>
+                )}                
                 <h3>Comments</h3> 
                 <form action="" method="post" onSubmit={this.submit}>
                     <input type="text" onChange={this.updateDetails} name="comment" value={this.state.comment}/>
