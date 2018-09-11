@@ -26,9 +26,10 @@ class NewPost extends React.Component {
   render(){
     return(
       <div>
+        <h1>New Post</h1>
         <form action="" method="post" onSubmit={this.submit}>
-          <input type="text" onChange={this.updateDetails} name="title" value={this.state.title}/>
-          <input type="text" onChange={this.updateDetails} name="text" value={this.state.text}/>
+          <input type="text" onChange={this.updateDetails} name="title" value={this.state.title}/><br/>
+          <textarea className="postInput" onChange={this.updateDetails} name="text" value={this.state.text}></textarea><br/>
           <input type="submit" value="Post Blog"/>
         </form>
       </div>

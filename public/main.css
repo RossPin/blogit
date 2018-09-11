@@ -22,6 +22,11 @@ body {
   width: 30%;
 }
 
+.postInput {
+  width: 100%;
+  height: 20em;
+}
+
 .content {
   width: 65%
 }
