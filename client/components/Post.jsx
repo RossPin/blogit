@@ -19,7 +19,7 @@ class Post extends React.Component {
     
     submit(e){
     e.preventDefault()
-    const comment = {id: this.props.currentBlog._id, comment: this.state.comment}
+    const comment = {id: this.props.currentBlog._id, comment: {comment: this.state.comment, user: this.props.auth.user}}
     this.props.dispatch(addComment(comment))
     this.setState({comment: ''})
     }
@@ -40,8 +40,8 @@ class Post extends React.Component {
                         <input type="submit" value="Post Comment"/>
                     </form>           
                     <ul>
-                        {this.props.currentBlog.comments.map(comment => 
-                            <li>{comment}</li>
+                        {this.props.currentBlog.comments.map((comment, i) => 
+                            <li key={i}><strong>{comment.user.username}:</strong> {comment.comment}</li>
                         )}
                     </ul>
                 </div> 
@@ -50,6 +50,6 @@ class Post extends React.Component {
     }
 }
 
-const mapStateToProps = ({currentBlog}) => ({currentBlog})
+const mapStateToProps = ({currentBlog, auth}) => ({currentBlog, auth})
 
 export default connect(mapStateToProps)(Post)
